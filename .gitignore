@@ -5,6 +5,7 @@
 .settings
 .idea
 target
+build
 maven-build.properties
 maven-build.xml
 build.xml

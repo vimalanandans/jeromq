@@ -43,7 +43,7 @@ public class ZSocket implements AutoCloseable
      */
     public int getType()
     {
-        return (int) getOption(ZMQ.ZMQ_TYPE);
+        return (Integer) getOption(ZMQ.ZMQ_TYPE);
     }
 
     /**
@@ -121,7 +121,8 @@ public class ZSocket implements AutoCloseable
      */
     public final boolean hasReceiveMore()
     {
-        return (int) getOption(ZMQ.ZMQ_RCVMORE) == 1;
+        if ((Integer) getOption(ZMQ.ZMQ_RCVMORE) == 1) return true;
+        else return false;
     }
 
     public void subscribe(byte[] topic)
