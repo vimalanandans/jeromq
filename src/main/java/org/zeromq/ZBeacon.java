@@ -186,7 +186,7 @@ public class ZBeacon
             try {
                 // Create UDP socket
                 handle = DatagramChannel.open();
-                handle.configureBlocking(false);
+                handle.configureBlocking(true);
                 DatagramSocket sock = handle.socket();
                 sock.setReuseAddress(true);
                 sock.bind(new InetSocketAddress(InetAddress.getByAddress(new byte[] { 0, 0, 0, 0 }), port));
