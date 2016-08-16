@@ -33,7 +33,7 @@ public class ZBeaconTest
     @Test
     public void test() throws InterruptedException
     {
-        final CountDownLatch latch = new CountDownLatch(100);
+        final CountDownLatch latch = new CountDownLatch(1);
         byte[] beacon = new byte[] { 'H', 'Y', 'D', 'R', 'A', 0x01, 0x12, 0x34 };
         byte[] prefix = new byte[] { 'H', 'Y', 'D', 'R', 'A', 0x01 };
         ZBeacon zbeacon = new ZBeacon("255.255.255.255", 5670, beacon, false);
@@ -48,7 +48,7 @@ public class ZBeaconTest
         });
 
         zbeacon.start();
-        latch.await(2000, TimeUnit.SECONDS);
+        latch.await(20, TimeUnit.SECONDS);
         assertEquals(latch.getCount(), 0);
         zbeacon.stop();
     }
